@@ -27,8 +27,8 @@ body{
     height: 95vh; /*tương đương 95% view height*/
     background-image:linear-gradient(
         to right bottom,
-        #7ed56fc7,
-        #28b485c5),
+        #7ed56f8a,
+        #28b485e8),
         url(../img/hero.jpg); /* comma - thêm hiệu ứng cho background , ở đây dùng linear-gradient có param 1 là hướng gradient */
     background-size: cover; /* tự fit với khối div chứa ảnh */
     background-position: top; /* điểm neo của ảnh - ở đây là top tức là khi view thay đổi thì top vẫn luôn bằng 0 */
@@ -52,11 +52,15 @@ body{
     top:40%;
     left: 50%;
     transform: translate(-50%,-50%);
+    text-align: center;
 }
 
 .heading-primary {
     color: #ffffff;
     text-transform: uppercase;
+
+    backface-visibility: hidden; /* fix animation ko cho nó bị dịch lên trên chút chút, nhảy bit ảnh đó;v */
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -64,6 +68,14 @@ body{
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px; /*khoảng cách giữa các chữ*/
+
+    animation: moveInLeft;
+    animation-duration: 1s ; /* thời gian animation chạy */
+    animation-timing-function: ease-out; /* timming function => có thể xem chư kiểu chạy , tự custom thì dùng cubic-bezier*/
+    
+    /* animation-delay: 3s;  thời gian delay để bắt đầu 
+       animation-iteration-count: 3; số lần chạy
+    */
 }
 
 .heading-primary-sub {
@@ -71,4 +83,104 @@ body{
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+
+    animation: moveInRight 1s ease-out ; /* one by one: animation-name, duration, timing-function,delay,et cetera */
+}
+
+/* animations */
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px); /* đi sang phải thêm 20px r mới về giữa */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px); /* đi sang phải thêm 20px r mới về giữa */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn:link,  /* link dùng cho khi style cho thẻ a và a có href thì phải thêm :link thì style mới nhận*/
+.btn:visited { /* visited is the state when the user has already clicked on the btn once before and then sees the btn again => nhấp nhiều lần*/
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block; /* không để block vì nếu để block mà ko cho width thì mặc định width của thẻ sẽ full theo cha của nó còn inline-block sẽ vẫn là block nhưng width bằng content bên trong */
+    border-radius: 100px;
+    transition: all 0.2s;
+    position: relative; /* để after ăn theo*/
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active { /* active dùng khi click vào element */
+    transform: translateY(-1px); /* hover thì nhô lên, khi click thì lùi xuống dưới xíu */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after { /* con của thẻ btn width=100% tức là bằng width btn*/
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+.btn-white::after{
+    background-color: #fff;
+}
+
+.btn:hover::after { /* khi hover btn thì style after*/
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animation { /* tạo thêm class này để chỉ dùng cho mỗi btn này thôi khi có nhiều btn*/
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards; /* dùng luôn style 0% ngay từ đầu khi dùng delay */
 }

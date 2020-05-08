@@ -5,3 +5,7 @@ có hai cách để chèn ảnh vào trang:
 * Để SEO tốt thì nên để tiêu đề web và tiêu đề sub trong thẻ h1 và h(n)
 
 * Căn giữa cả trên dưới trái phải : áp dụng position với top left 50% và transion: translate(-50%,-50%);
+
+* Tạo CSS animations dùng @keyframes và animation property
+
+* pseudo-element: ::after, ::before, ... còn pseudo-class là :link,:hover,:visited,...
