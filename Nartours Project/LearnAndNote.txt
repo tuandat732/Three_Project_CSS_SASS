@@ -9,3 +9,9 @@ có hai cách để chèn ảnh vào trang:
 * Tạo CSS animations dùng @keyframes và animation property
 
 * pseudo-element: ::after, ::before, ... còn pseudo-class là :link,:hover,:visited,...
+
+* Xem slide để nhớ về phần specifility
+
+* CSS values : - padding default = 0px;
+               - font-size default = 16px;
+               - ... xem thêm trong slide

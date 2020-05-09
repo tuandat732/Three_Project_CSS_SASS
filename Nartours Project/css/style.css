@@ -8,19 +8,31 @@ Dark green: #28b485
 */
 
 /* Browse reset html */
-* {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /*box-sizing: border-box; cách này dùng khi muốn dùng border-box cho tất cả*/
+    box-sizing: inherit; /* kế thừa: cách này dùng linht động hơn, element nào muốn dùng loại gì thì define vào element đó */  
+}
+
+html {
+    /*font-size: 10px;  dùng 10px trong html tương đương với root => với các element khác khi dùng rem => 1 rem <=> 10px, nếu ko define font-size thì mặc định bằng 16px */
+    /* để 10px cho dễ chia đó */
+    font-size: 62.5%; /* tương đương với 10px, 16px*62.5%=10px đó, nên dùng % ở đoạn này để người dùng ko tùy ý chỉnh theo px 
+    muốn tăng px lên thì lấy 0.625 * số px cần để ra % */
 }
 
 body{
     font-family: "Lato",sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem; /* 30px */
+
+    box-sizing: border-box; /* define box-sizing cho body */
 }
 
 .header {
@@ -39,12 +51,12 @@ body{
 
 .logo-box {
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
 .logo {
-    height: 35px;
+    height: 3.5rem;
 }
 
 .text-box {
@@ -60,14 +72,14 @@ body{
     text-transform: uppercase;
 
     backface-visibility: hidden; /* fix animation ko cho nó bị dịch lên trên chút chút, nhảy bit ảnh đó;v */
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 
 .heading-primary-main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px; /*khoảng cách giữa các chữ*/
+    letter-spacing: 3.5rem; /*khoảng cách giữa các chữ*/
 
     animation: moveInLeft;
     animation-duration: 1s ; /* thời gian animation chạy */
@@ -80,9 +92,9 @@ body{
 
 .heading-primary-sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem; /* 17.4px*/
 
     animation: moveInRight 1s ease-out ; /* one by one: animation-name, duration, timing-function,delay,et cetera */
 }
@@ -91,11 +103,11 @@ body{
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
 
     80% {
-        transform: translateX(10px); /* đi sang phải thêm 20px r mới về giữa */
+        transform: translateX(1rem); /* đi sang phải thêm 20px r mới về giữa */
     }
 
     100% {
@@ -107,11 +119,11 @@ body{
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
 
     80% {
-        transform: translateX(-10px); /* đi sang phải thêm 20px r mới về giữa */
+        transform: translateX(-1rem); /* đi sang phải thêm 20px r mới về giữa */
     }
 
     100% {
@@ -123,7 +135,7 @@ body{
 @keyframes moveInBottom {
     0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
 
     100% {
@@ -136,21 +148,22 @@ body{
 .btn:visited { /* visited is the state when the user has already clicked on the btn once before and then sees the btn again => nhấp nhiều lần*/
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block; /* không để block vì nếu để block mà ko cho width thì mặc định width của thẻ sẽ full theo cha của nó còn inline-block sẽ vẫn là block nhưng width bằng content bên trong */
-    border-radius: 100px;
+    border-radius: 10rem;
     transition: all 0.2s;
     position: relative; /* để after ăn theo*/
+    font-size: 1.6rem;
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn:active { /* active dùng khi click vào element */
     transform: translateY(-1px); /* hover thì nhô lên, khi click thì lùi xuống dưới xíu */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
@@ -163,7 +176,7 @@ body{
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     top: 0;
     left: 0;
