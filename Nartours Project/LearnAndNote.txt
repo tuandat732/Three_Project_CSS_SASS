@@ -15,3 +15,7 @@ có hai cách để chèn ảnh vào trang:
 * CSS values : - padding default = 0px;
                - font-size default = 16px;
                - ... xem thêm trong slide
+
+
+
+* TRAIN SCSS : https://codepen.io/tuandat732/pen/QWjBgga
