@@ -1,12 +1,4 @@
 @charset "UTF-8";
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
 /* Browse reset html */
 *,
 *::after,
@@ -25,69 +17,8 @@ html {
     muốn tăng px lên thì lấy 0.625 * số px cần để ra % */ }
 
 body {
-  font-family: "Lato",sans-serif;
-  font-weight: 400;
-  /* font-size: 16px; */
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  /* 30px */
   box-sizing: border-box;
   /* define box-sizing cho body */ }
-
-.header {
-  height: 95vh;
-  /*tương đương 95% view height*/
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  /* comma - thêm hiệu ứng cho background , ở đây dùng linear-gradient có param 1 là hướng gradient */
-  background-size: cover;
-  /* tự fit với khối div chứa ảnh */
-  background-position: top;
-  /* điểm neo của ảnh - ở đây là top tức là khi view thay đổi thì top vẫn luôn bằng 0 */
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /* chỉnh sửa khối theo 4 điểm neo -> cặp tọa độ x y của 4 điểm neo từ trái->phải với hàng trên, phải sang trái với hàng dưới=> theo chiều kim đồng hồ */ }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; }
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  backface-visibility: hidden;
-  /* fix animation ko cho nó bị dịch lên trên chút chút, nhảy bit ảnh đó;v */
-  margin-bottom: 6rem; }
-  .heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    /*khoảng cách giữa các chữ*/
-    animation: moveInLeft;
-    animation-duration: 1s;
-    /* thời gian animation chạy */
-    animation-timing-function: ease-out;
-    /* timming function => có thể xem chư kiểu chạy , tự custom thì dùng cubic-bezier*/
-    /* animation-delay: 3s;  thời gian delay để bắt đầu 
-           animation-iteration-count: 3; số lần chạy
-        */ }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    /* 17.4px*/
-    animation: moveInRight 1s ease-out;
-    /* one by one: animation-name, duration, timing-function,delay,et cetera */ }
 
 /* animations */
 @keyframes moveInLeft {
@@ -119,6 +50,44 @@ body {
   100% {
     opacity: 1;
     transform: translateY(0); } }
+
+body {
+  font-family: "Lato",sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  /* 30px */ }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /* fix animation ko cho nó bị dịch lên trên chút chút, nhảy bit ảnh đó;v */
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /*khoảng cách giữa các chữ*/
+    animation: moveInLeft;
+    animation-duration: 1s;
+    /* thời gian animation chạy */
+    animation-timing-function: ease-out;
+    /* timming function => có thể xem chư kiểu chạy , tự custom thì dùng cubic-bezier*/
+    /* animation-delay: 3s;  thời gian delay để bắt đầu 
+           animation-iteration-count: 3; số lần chạy
+        */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /* 17.4px*/
+    animation: moveInRight 1s ease-out;
+    /* one by one: animation-name, duration, timing-function,delay,et cetera */ }
 
 .btn:link, .btn:visited {
   /* visited is the state when the user has already clicked on the btn once before and then sees the btn again => nhấp nhiều lần*/
@@ -171,3 +140,28 @@ body {
   animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards;
   /* dùng luôn style 0% ngay từ đầu khi dùng delay */ }
+
+.header {
+  height: 95vh;
+  /*tương đương 95% view height*/
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  /* comma - thêm hiệu ứng cho background , ở đây dùng linear-gradient có param 1 là hướng gradient */
+  background-size: cover;
+  /* tự fit với khối div chứa ảnh */
+  background-position: top;
+  /* điểm neo của ảnh - ở đây là top tức là khi view thay đổi thì top vẫn luôn bằng 0 */
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* chỉnh sửa khối theo 4 điểm neo -> cặp tọa độ x y của 4 điểm neo từ trái->phải với hàng trên, phải sang trái với hàng dưới=> theo chiều kim đồng hồ */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }

@@ -1,0 +1,20 @@
+/* Browse reset html */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    /*box-sizing: border-box; cách này dùng khi muốn dùng border-box cho tất cả*/
+    box-sizing: inherit; /* kế thừa: cách này dùng linht động hơn, element nào muốn dùng loại gì thì define vào element đó */  
+}
+
+html {
+    /*font-size: 10px;  dùng 10px trong html tương đương với root => với các element khác khi dùng rem => 1 rem <=> 10px, nếu ko define font-size thì mặc định bằng 16px */
+    /* để 10px cho dễ chia đó */
+    font-size: 62.5%; /* tương đương với 10px, 16px*62.5%=10px đó, nên dùng % ở đoạn này để người dùng ko tùy ý chỉnh theo px 
+    muốn tăng px lên thì lấy 0.625 * số px cần để ra % */
+} // => this defines what 1rem is => khong nen chuyen vafo typography
+
+body{
+    box-sizing: border-box; /* define box-sizing cho body */
+}

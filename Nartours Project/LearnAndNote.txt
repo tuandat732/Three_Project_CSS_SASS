@@ -30,3 +30,12 @@ có hai cách để chèn ảnh vào trang:
 
 - live-server : npm install live-server -g // install global để bất cứ prj nào cx dùng dc
  => để chạy, gõ lệnh live-server trong folder main prj đó
+
+- folder base in scss:
+    + base : chứa các base scss như animation, typography.utilities và 1 file base
+    + components: chứa các components để reuse
+    + layout: chứa các file layout như footer,header,...
+    + pages: chứa các file page như landing page, homepage
+    + abstracts : chứa các file mixin, function, variable
+    + vendor: chứa các file từ bên thứ 3 như bootstrap, animation framework,...
+    + themes: chứa các file themes ví dụ khi muốn giao diện web riêng và web mobile riêng
