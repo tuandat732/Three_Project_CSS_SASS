@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 COLORS:
 
@@ -6,194 +7,167 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
-
 /* Browse reset html */
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    /*box-sizing: border-box; cách này dùng khi muốn dùng border-box cho tất cả*/
-    box-sizing: inherit; /* kế thừa: cách này dùng linht động hơn, element nào muốn dùng loại gì thì define vào element đó */  
-}
+  margin: 0;
+  padding: 0;
+  /*box-sizing: border-box; cách này dùng khi muốn dùng border-box cho tất cả*/
+  box-sizing: inherit;
+  /* kế thừa: cách này dùng linht động hơn, element nào muốn dùng loại gì thì define vào element đó */ }
 
 html {
-    /*font-size: 10px;  dùng 10px trong html tương đương với root => với các element khác khi dùng rem => 1 rem <=> 10px, nếu ko define font-size thì mặc định bằng 16px */
-    /* để 10px cho dễ chia đó */
-    font-size: 62.5%; /* tương đương với 10px, 16px*62.5%=10px đó, nên dùng % ở đoạn này để người dùng ko tùy ý chỉnh theo px 
-    muốn tăng px lên thì lấy 0.625 * số px cần để ra % */
-}
+  /*font-size: 10px;  dùng 10px trong html tương đương với root => với các element khác khi dùng rem => 1 rem <=> 10px, nếu ko define font-size thì mặc định bằng 16px */
+  /* để 10px cho dễ chia đó */
+  font-size: 62.5%;
+  /* tương đương với 10px, 16px*62.5%=10px đó, nên dùng % ở đoạn này để người dùng ko tùy ý chỉnh theo px 
+    muốn tăng px lên thì lấy 0.625 * số px cần để ra % */ }
 
-body{
-    font-family: "Lato",sans-serif;
-    font-weight: 400;
-    /* font-size: 16px; */
-    line-height: 1.7;
-    color: #777;
-    padding: 3rem; /* 30px */
-
-    box-sizing: border-box; /* define box-sizing cho body */
-}
+body {
+  font-family: "Lato",sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  /* 30px */
+  box-sizing: border-box;
+  /* define box-sizing cho body */ }
 
 .header {
-    height: 95vh; /*tương đương 95% view height*/
-    background-image:linear-gradient(
-        to right bottom,
-        #7ed56fb9,
-        #28b485f6),
-        url(../img/hero.jpg); /* comma - thêm hiệu ứng cho background , ở đây dùng linear-gradient có param 1 là hướng gradient */
-    background-size: cover; /* tự fit với khối div chứa ảnh */
-    background-position: top; /* điểm neo của ảnh - ở đây là top tức là khi view thay đổi thì top vẫn luôn bằng 0 */
-    position: relative;
-
-    clip-path: polygon(0 0,100% 0,100% 75vh,0 100%); /* chỉnh sửa khối theo 4 điểm neo -> cặp tọa độ x y của 4 điểm neo từ trái->phải với hàng trên, phải sang trái với hàng dưới=> theo chiều kim đồng hồ */
-}
-
-.header__logo-box {
+  height: 95vh;
+  /*tương đương 95% view height*/
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  /* comma - thêm hiệu ứng cho background , ở đây dùng linear-gradient có param 1 là hướng gradient */
+  background-size: cover;
+  /* tự fit với khối div chứa ảnh */
+  background-position: top;
+  /* điểm neo của ảnh - ở đây là top tức là khi view thay đổi thì top vẫn luôn bằng 0 */
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* chỉnh sửa khối theo 4 điểm neo -> cặp tọa độ x y của 4 điểm neo từ trái->phải với hàng trên, phải sang trái với hàng dưới=> theo chiều kim đồng hồ */ }
+  .header__logo-box {
     position: absolute;
     top: 4rem;
-    left: 4rem;
-}
-
-.header__logo {
-    height: 3.5rem;
-}
-
-.header__text-box {
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
     position: absolute;
-    top:40%;
+    top: 40%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    text-align: center;
-}
+    transform: translate(-50%, -50%);
+    text-align: center; }
 
 .heading-primary {
-    color: #ffffff;
-    text-transform: uppercase;
-
-    backface-visibility: hidden; /* fix animation ko cho nó bị dịch lên trên chút chút, nhảy bit ảnh đó;v */
-    margin-bottom: 6rem;
-}
-
-.heading-primary--main {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /* fix animation ko cho nó bị dịch lên trên chút chút, nhảy bit ảnh đó;v */
+  margin-bottom: 6rem; }
+  .heading-primary--main {
     display: block;
     font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 3.5rem; /*khoảng cách giữa các chữ*/
-
+    letter-spacing: 3.5rem;
+    /*khoảng cách giữa các chữ*/
     animation: moveInLeft;
-    animation-duration: 1s ; /* thời gian animation chạy */
-    animation-timing-function: ease-out; /* timming function => có thể xem chư kiểu chạy , tự custom thì dùng cubic-bezier*/
-    
+    animation-duration: 1s;
+    /* thời gian animation chạy */
+    animation-timing-function: ease-out;
+    /* timming function => có thể xem chư kiểu chạy , tự custom thì dùng cubic-bezier*/
     /* animation-delay: 3s;  thời gian delay để bắt đầu 
-       animation-iteration-count: 3; số lần chạy
-    */
-}
-
-.heading-primary--sub {
+           animation-iteration-count: 3; số lần chạy
+        */ }
+  .heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 1.75rem; /* 17.4px*/
-
-    animation: moveInRight 1s ease-out ; /* one by one: animation-name, duration, timing-function,delay,et cetera */
-}
+    letter-spacing: 1.75rem;
+    /* 17.4px*/
+    animation: moveInRight 1s ease-out;
+    /* one by one: animation-name, duration, timing-function,delay,et cetera */ }
 
 /* animations */
 @keyframes moveInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-10rem);
-    }
-
-    80% {
-        transform: translateX(1rem); /* đi sang phải thêm 20px r mới về giữa */
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem);
+    /* đi sang phải thêm 20px r mới về giữa */ }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
 
 @keyframes moveInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(10rem);
-    }
-
-    80% {
-        transform: translateX(-1rem); /* đi sang phải thêm 20px r mới về giữa */
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem);
+    /* đi sang phải thêm 20px r mới về giữa */ }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
 
 @keyframes moveInBottom {
-    0% {
-        opacity: 0;
-        transform: translateY(3rem);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
 
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.btn:link,  /* link dùng cho khi style cho thẻ a và a có href thì phải thêm :link thì style mới nhận*/
-.btn:visited { /* visited is the state when the user has already clicked on the btn once before and then sees the btn again => nhấp nhiều lần*/
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block; /* không để block vì nếu để block mà ko cho width thì mặc định width của thẻ sẽ full theo cha của nó còn inline-block sẽ vẫn là block nhưng width bằng content bên trong */
-    border-radius: 10rem;
-    transition: all 0.2s;
-    position: relative; /* để after ăn theo*/
-    font-size: 1.6rem;
-}
+.btn:link, .btn:visited {
+  /* visited is the state when the user has already clicked on the btn once before and then sees the btn again => nhấp nhiều lần*/
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  /* không để block vì nếu để block mà ko cho width thì mặc định width của thẻ sẽ full theo cha của nó còn inline-block sẽ vẫn là block nhưng width bằng content bên trong */
+  border-radius: 10rem;
+  transition: all 0.2s;
+  position: relative;
+  /* để after ăn theo*/
+  font-size: 1.6rem; }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    /* khi hover btn thì style after*/
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
 
-.btn:active { /* active dùng khi click vào element */
-    transform: translateY(-1px); /* hover thì nhô lên, khi click thì lùi xuống dưới xíu */
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
+.btn:active {
+  /* active dùng khi click vào element */
+  transform: translateY(-1px);
+  /* hover thì nhô lên, khi click thì lùi xuống dưới xíu */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
 
 .btn--white {
-    background-color: #fff;
-    color: #777;
-}
+  background-color: #fff;
+  color: #777; }
+  .btn--white::after {
+    background-color: #fff; }
 
-.btn::after { /* con của thẻ btn width=100% tức là bằng width btn*/
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all 0.4s;
-}
+.btn::after {
+  /* con của thẻ btn width=100% tức là bằng width btn*/
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s; }
 
-.btn--white::after{
-    background-color: #fff;
-}
-
-.btn:hover::after { /* khi hover btn thì style after*/
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
-
-.btn--animation { /* tạo thêm class này để chỉ dùng cho mỗi btn này thôi khi có nhiều btn*/
-    animation: moveInBottom 0.5s ease-out 0.75s;
-    animation-fill-mode: backwards; /* dùng luôn style 0% ngay từ đầu khi dùng delay */
-}
+.btn--animation {
+  /* tạo thêm class này để chỉ dùng cho mỗi btn này thôi khi có nhiều btn*/
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  animation-fill-mode: backwards;
+  /* dùng luôn style 0% ngay từ đầu khi dùng delay */ }

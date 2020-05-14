@@ -19,3 +19,14 @@ có hai cách để chèn ảnh vào trang:
 
 
 * TRAIN SCSS : https://codepen.io/tuandat732/pen/QWjBgga
+
+- install sass in local: npm install node-sass --save-dev 
+
+- script compile sass to css: 
+    "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"  // compile file main.scss thành code css và ghi nó vào file style.css, flag -w để lắng nghe => chỉ cần compile 1 lần và nó sẽ lắng nghe thay đổi
+  },
+  => để chạy, ấn lệnh npm run compile:sass
+
+- live-server : npm install live-server -g // install global để bất cứ prj nào cx dùng dc
+ => để chạy, gõ lệnh live-server trong folder main prj đó
