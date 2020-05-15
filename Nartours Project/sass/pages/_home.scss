@@ -4,3 +4,17 @@
     margin-top: -20vh;
 
 }
+
+.section-features {
+    padding: 2rem 0;
+    background-image:linear-gradient(
+        to right bottom,
+        rgba($color-primary-light,0.8), // chỉ trong sass mới put hex color vào rgba
+        rgba($color-primary-dark,0.8)),
+        url(../img/nat-4.jpg); /* comma - thêm hiệu ứng cho background , ở đây dùng linear-gradient có param 1 là hướng gradient */
+    background-size: cover; /* tự fit với khối div chứa ảnh */
+    background-position: top; /* điểm neo của ảnh - ở đây là top tức là khi view thay đổi thì top vẫn luôn bằng 0 */
+    position: relative;
+
+    clip-path: polygon(0 0,100% 0,100% 75vh,0 100%); /* chỉnh sửa khối theo 4 điểm neo -> cặp tọa độ x y của 4 điểm neo từ trái->phải với hàng trên, phải sang trái với hàng dưới=> theo chiều kim đồng hồ */
+}

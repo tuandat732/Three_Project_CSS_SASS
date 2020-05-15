@@ -9,7 +9,7 @@
         border-radius: 10rem;
         transition: all 0.2s;
         position: relative; /* để after ăn theo*/
-        font-size: 1.6rem;
+        font-size: $default-font-size;
     }
 
     &:hover {
@@ -52,5 +52,30 @@
     &--animation { /* tạo thêm class này để chỉ dùng cho mỗi btn này thôi khi có nhiều btn*/
         animation: moveInBottom 0.5s ease-out 0.75s;
         animation-fill-mode: backwards; /* dùng luôn style 0% ngay từ đầu khi dùng delay */
+    }
+}
+
+.btn-text {
+    &:link,
+    &:visited{
+        font-size: $default-font-size;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+        transition: all 0.2s;
+    }
+
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        box-shadow: 0 1rem 1rem rgba($color-black, 0.15);
+        transform: translateY(0px);
     }
 }

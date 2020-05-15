@@ -1,5 +1,7 @@
+link web học css: https://css-tricks.com/
+
 có hai cách để chèn ảnh vào trang:
-- nếu muốn ảnh nằm trong 1 khối có kích thước tùy chỉnh thì tạo 1 div (chứa &nbsp;) và ảnh là backgroudn image của nó --> có  thể overflow hidden đc
+- nếu muốn ảnh nằm trong 1 khối có kích thước tùy chỉnh thì tạo 1 div (chứa &nbsp;) và ảnh là background image của nó --> có  thể overflow hidden đc
 - nếu muốn giữ tỉ lệ đúng của ảnh --> tạo 1 div và chứa thẻ img ở trong
 
 * Để SEO tốt thì nên để tiêu đề web và tiêu đề sub trong thẻ h1 và h(n)
@@ -16,7 +18,7 @@ có hai cách để chèn ảnh vào trang:
                - font-size default = 16px;
                - ... xem thêm trong slide
 
-
+* HTML: để thêm mũi tên ta nhập &rarr;
 
 * TRAIN SCSS : https://codepen.io/tuandat732/pen/QWjBgga
 
