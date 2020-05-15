@@ -8,7 +8,7 @@ có hai cách để chèn ảnh vào trang:
 
 * Tạo CSS animations dùng @keyframes và animation property
 
-* pseudo-element: ::after, ::before, ... còn pseudo-class là :link,:hover,:visited,...
+* pseudo-element: ::after, ::before, ... còn pseudo-class là :link,:hover,:visited,last-child,not,...
 
 * Xem slide để nhớ về phần specifility
 
