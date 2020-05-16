@@ -36,6 +36,15 @@
         }
     }
 
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &::after{
+            background-color: $color-primary;
+        }
+    }
+
     &::after { /* con của thẻ btn width=100% tức là bằng width btn*/
         content: "";
         display: inline-block;
