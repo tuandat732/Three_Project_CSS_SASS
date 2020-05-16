@@ -1,0 +1,104 @@
+.card {
+    perspective: 150rem; // thêm chiều sâu cho thẻ => để cho thẻ quay được đẹp hơn giống thật hơn
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 52rem;
+
+    &__side {
+        height: 52rem;
+        transition: all 0.5s ease;
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden; //Không hiển thị bề mặt sau, khi thực hiện hiệu ứng xoay.
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($color-black,.15);
+
+        &--front{
+            background-color: white;
+        }
+    
+        &--back{
+            transform: rotateY(180deg);
+
+            &-1{
+                background-image: linear-gradient(to right bottom, $color-secondary-light,$color-secondary-dark);
+            }
+        }
+    }
+
+    // khi hover thì front thành back và back thành front
+    &:hover &__side--front{ 
+        transform: rotateY(-180deg); 
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0deg); 
+    }
+
+    //card front style
+    &__picture {
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen; // chế độ màu cho hình ảnh
+        clip-path: polygon(0 0, 100% 0,100% 85%,0 100%);
+        -webkit-clip-path: polygon(0 0, 100% 0,100% 85%,0 100%);
+        
+        &--1{
+            background-image: linear-gradient(to right bottom, $color-secondary-light,$color-secondary-dark), url(../img/nat-5.jpg); // chỉ ra ngoài folder 1 lần vì khi compile ra css chỉ có ra ngoài 1 lần
+        }
+
+        &--2{
+            background-image: url(../img/nat-5.jpg); // chỉ ra ngoài folder 1 lần vì khi compile ra css chỉ có ra ngoài 1 lần
+        }
+
+        &--3{
+            background-image: url(../img/nat-5.jpg); // chỉ ra ngoài folder 1 lần vì khi compile ra css chỉ có ra ngoài 1 lần
+        }
+    }
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        color: $color-white;
+        position: absolute;
+        top:12rem;
+        right: 2rem;
+        width: 75%;
+    }
+
+    &__heading-span {
+        padding: 1rem 1.5rem;
+        box-decoration-break: clone; // giúp padding của dòng chữ khi xuống dòng vẫn thỏa mãn padding mình đặt
+        -webkit-box-decoration-break:clone;
+        &--1 {
+            background-image: linear-gradient(to right bottom,
+            rgba($color-secondary-light,.85),
+            rgba($color-secondary-dark,.85));
+        }
+    }
+
+    &__details {
+        padding: 3rem;
+
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+                
+                &:not(:last-child){
+                    border-bottom: 1px solid $color-grey-light-2;
+                }
+            }
+        }
+    }
+}

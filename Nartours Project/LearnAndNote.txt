@@ -41,3 +41,6 @@ có hai cách để chèn ảnh vào trang:
     + abstracts : chứa các file mixin, function, variable
     + vendor: chứa các file từ bên thứ 3 như bootstrap, animation framework,...
     + themes: chứa các file themes ví dụ khi muốn giao diện web riêng và web mobile riêng
+
+
+    background-blend-mode: screen; // chế độ màu cho hình ảnh
