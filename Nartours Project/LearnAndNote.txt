@@ -44,3 +44,8 @@ có hai cách để chèn ảnh vào trang:
 
 
     background-blend-mode: screen; // chế độ màu cho hình ảnh
+    -Dùng filter để thêm nhiều hiệu ứng đẹp cho style ví dụ như blur,...
+    -object-fit: cover; //dùng để set width và height cover với parent của nó, tương tự như background-size:cover nhưng dùng dc cho cả video,HTML element,... 
+
+
+    - WEV cover để tải các vid free thêm vào web cho sinh động
