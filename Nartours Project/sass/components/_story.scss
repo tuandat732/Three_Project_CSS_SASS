@@ -1,0 +1,37 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black,.1);
+    background-color: $color-white;
+    border-radius: 3px;
+    padding: 6rem;
+    padding-left: 9rem;
+    font-size: $default-font-size;
+    transform: skewX(-12deg);
+
+    &>*{
+        transform: skewX(12deg);
+    }
+
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        shape-outside: circle(50% at 50% 50%); // ban kinh bang 50% width vaf tam o toa do bang 50% height width => dùng cái này thì chữ có thể flow theo hình tròn và phải dùng float thì mới dc
+        -webkit-shape-outside: circle(50% at 50% 50%); // ban kinh bang 50% width vaf tam o toa do bang 50% height width
+
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%); // chuyển thẻ thành hình tròn
+
+        transform: translateX(-3rem) skewX(12deg); //dich hinh tron ra cach chu 1 doan
+        // __shape này cụ thể hơn nên transform img sẽ ko ăn skew của &>* => phải thêm cả skew vào đây
+    }
+
+    &__img {
+        height: 100%; // bằng 100% tk cha
+    }
+
+    &__text {
+
+    }
+}
