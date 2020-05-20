@@ -1,0 +1,51 @@
+.form {
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color-white,.5);
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        display: block;
+        transition: all .3s ease-out;
+
+        &:focus { // focus laf khi ta chọn vào thẻ input đó
+            outline: none; // không có cái outline xanh xung quanh thẻ input
+            box-shadow: 0 1rem 2rem rgba($color-black,.1);
+            border-bottom: 3px solid $color-primary;
+        }
+
+        &:focus:invalid { //khi thẻ input dc focus mà text trong input nhập chưa đúng vs valid thì sẽ dùng style này
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+
+        &::-webkit-input-placeholder { // dùng để chỉnh phaceholder trong thẻ input
+            color: $color-grey-dark-2;
+        }
+
+
+    }
+
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        display: block;
+        transition:  all .3s;
+    }
+
+    &__input:placeholder-shown + &__label{ //+ : adjacent sibling => dung để select những cái ỏ ngay sau thẻ đang xét
+        opacity: 0; //:placeholder-shown là khi chưa focus và invalid thì có style trong này
+        visibility: hidden; // phải xét thêm cái này vì opacity chỉ làm nó ko hiển thị còn đâu vẫn chiếm s trong web=> xét thêm cái này để nó mất hoàn toàn 
+        // 1 lí do nx khi dùng thêm visibility vì visibility ko thể xét animation dc => phải xét thêm opacity
+        transform: translateY(-4rem);
+    }
+}
