@@ -1,90 +1,104 @@
-.btn{
+.btn {
+  &, // vif ther button ko co thuoc tinh link, visisted nen phao them & tuong trung cho element do
     &:link,  /* link dùng cho khi style cho thẻ a và a có href thì phải thêm :link thì style mới nhận*/
-    &:visited { /* visited is the state when the user has already clicked on the btn once before and then sees the btn again => nhấp nhiều lần*/
-        text-transform: uppercase;
-        text-decoration: none;
-        padding: 1.5rem 4rem;
-        display: inline-block; 
-        /* không để block vì nếu để block mà ko cho width thì mặc định width của thẻ sẽ full theo cha của nó còn inline-block sẽ vẫn là block nhưng width bằng content bên trong */
-        border-radius: 10rem;
-        transition: all 0.2s;
-        position: relative; /* để after ăn theo*/
-        font-size: $default-font-size;
+    &:visited {
+    /* visited is the state when the user has already clicked on the btn once before and then sees the btn again => nhấp nhiều lần*/
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    /* không để block vì nếu để block mà ko cho width thì mặc định width của thẻ sẽ full theo cha của nó còn inline-block sẽ vẫn là block nhưng width bằng content bên trong */
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative; /* để after ăn theo*/
+    font-size: $default-font-size;
+
+    //Change for the <button> element
+    border: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      /* khi hover btn thì style after*/
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
     }
+  }
 
-    &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+  &:active,
+  &:focus {
+    outline: none;
+    /* active dùng khi click vào element */
+    transform: translateY(
+      -1px
+    ); /* hover thì nhô lên, khi click thì lùi xuống dưới xíu */
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
 
-        &::after { /* khi hover btn thì style after*/
-            transform: scaleX(1.4) scaleY(1.6);
-            opacity: 0;
-        }
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
     }
+  }
 
-    &:active { /* active dùng khi click vào element */
-        transform: translateY(-1px); /* hover thì nhô lên, khi click thì lùi xuống dưới xíu */
-        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
     }
+  }
 
-    &--white {
-        background-color: $color-white;
-        color: $color-grey-dark;
+  &::after {
+    /* con của thẻ btn width=100% tức là bằng width btn*/
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
 
-        &::after{
-            background-color: $color-white;
-        }
-    }
-
-    &--green {
-        background-color: $color-primary;
-        color: $color-white;
-
-        &::after{
-            background-color: $color-primary;
-        }
-    }
-
-    &::after { /* con của thẻ btn width=100% tức là bằng width btn*/
-        content: "";
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        border-radius: 10rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition: all 0.4s;
-    }
-
-    &--animation { /* tạo thêm class này để chỉ dùng cho mỗi btn này thôi khi có nhiều btn*/
-        animation: moveInBottom 0.5s ease-out 0.75s;
-        animation-fill-mode: backwards; /* dùng luôn style 0% ngay từ đầu khi dùng delay */
-    }
+  &--animation {
+    /* tạo thêm class này để chỉ dùng cho mỗi btn này thôi khi có nhiều btn*/
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards; /* dùng luôn style 0% ngay từ đầu khi dùng delay */
+  }
 }
 
 .btn-text {
-    &:link,
-    &:visited{
-        font-size: $default-font-size;
-        color: $color-primary;
-        display: inline-block;
-        text-decoration: none;
-        border-bottom: 1px solid $color-primary;
-        padding: 3px;
-        transition: all 0.2s;
-    }
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 3px;
+    transition: all 0.2s;
+  }
 
-    &:hover {
-        background-color: $color-primary;
-        color: $color-white;
-        box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
-        transform: translateY(-2px);
-    }
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-2px);
+  }
 
-    &:active {
-        box-shadow: 0 1rem 1rem rgba($color-black, 0.15);
-        transform: translateY(0px);
-    }
+  &:active {
+    box-shadow: 0 1rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0px);
+  }
 }
