@@ -49,3 +49,6 @@ có hai cách để chèn ảnh vào trang:
 
 
     - WEV cover để tải các vid free thêm vào web cho sinh động
+
+
+    -- column-count : 1 feature mới, dùng để chia cột cho text
