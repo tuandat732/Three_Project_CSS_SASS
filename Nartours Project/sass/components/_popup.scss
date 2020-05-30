@@ -7,6 +7,44 @@
   background-color: rgba($color-black, 0.8);
   z-index: 9999;
 
+  opacity: 0;
+  visibility: hidden; // dùng 2 cái này để thêm animation và nó ko chiếm vùng trong web
+
+  transition: all 0.3s;
+
+  //OPEN POPUP
+  &:target {
+    //target là khi ta click vô btn và trên url có #id-target => nó đã dc target
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  //nút hide popup
+  &__close {
+    &:link,
+    &:visited {
+      color: $color-grey-dark;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      line-height: 1;
+    }
+
+    &:hover {
+      color: $color-primary;
+      transform: scale(1.2);
+    }
+  }
+
   &__content {
     @include absCenter;
 
@@ -17,6 +55,9 @@
     border-radius: 3px;
     display: table; // ddùng table vì để browser luôn cho 2 tk ceil của table cung 1 height
     overflow: hidden;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.25);
+    transition: all 0.5s 0.2s; //.2s là delay
   }
 
   &__left {
