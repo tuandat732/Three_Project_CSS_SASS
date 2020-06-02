@@ -1,66 +1,88 @@
 .story {
-    width: 75%;
-    margin: 0 auto;
-    box-shadow: 0 3rem 6rem rgba($color-black,.1);
-    background-color: rgba($color-white,.6);
-    border-radius: 3px;
-    padding: 6rem;
-    padding-left: 9rem;
-    font-size: $default-font-size;
-    transform: skewX(-12deg);
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: rgba($color-white, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
 
-    // &>*{
-    //     transform: skewX(12deg);
-    // }
+  // &>*{
+  //     transform: skewX(12deg);
+  // }
 
-    &__shape {
-        width: 15rem;
-        height: 15rem;
-        float: left;
-        shape-outside: circle(50% at 50% 50%); // ban kinh bang 50% width vaf tam o toa do bang 50% height width => dùng cái này thì chữ có thể flow theo hình tròn và phải dùng float thì mới dc
-        -webkit-shape-outside: circle(50% at 50% 50%); // ban kinh bang 50% width vaf tam o toa do bang 50% height width
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
 
-        -webkit-clip-path: circle(50% at 50% 50%);
-        clip-path: circle(50% at 50% 50%); // chuyển thẻ thành hình tròn
+  @include respond(phone) {
+    transform: skewX(0);
+  }
 
-        transform: translateX(-3rem) skewX(12deg); //dich hinh tron ra cach chu 1 doan
-        // __shape này cụ thể hơn nên transform img sẽ ko ăn skew của &>* => phải thêm cả skew vào đây
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    shape-outside: circle(
+      50% at 50% 50%
+    ); // ban kinh bang 50% width vaf tam o toa do bang 50% height width => dùng cái này thì chữ có thể flow theo hình tròn và phải dùng float thì mới dc
+    -webkit-shape-outside: circle(
+      50% at 50% 50%
+    ); // ban kinh bang 50% width vaf tam o toa do bang 50% height width
 
-        position: relative;
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%); // chuyển thẻ thành hình tròn
+
+    transform: translateX(-3rem) skewX(12deg); //dich hinh tron ra cach chu 1 doan
+    // __shape này có độ cụ thể hơn nên transform img sẽ ko ăn skew của &>* => phải thêm cả skew vào đây
+
+    position: relative;
+
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0);
     }
+  }
 
-    &__img {
-        height: 100%; // bằng 100% tk cha
-        transform: translateX(-4rem) scale(1.4);
-        transition: all .5s;
-        backface-visibility: hidden;
-    }
+  &__img {
+    height: 100%; // bằng 100% tk cha
+    transform: translateX(-4rem) scale(1.4);
+    transition: all 0.5s;
+    backface-visibility: hidden;
+  }
 
-    &__text {
-        transform: skewX(12deg);
-    }
+  &__text {
+    transform: skewX(12deg);
 
-    &__caption {
-        position: absolute;
-        top:50%;
-        left: 50%;
-        transform: translate(-50%,20%);
-        color: $color-white;
-        text-transform: uppercase;
-        font-size: 1.7rem;
-        text-align: center;
-        opacity: 0;
-        transition: all .5s;
-        backface-visibility: hidden; //fix small glitch
+    @include respond(phone) {
+      transform: skewX(0);
     }
+  }
 
-    &:hover &__caption {
-        opacity: 1;
-        transform: translate(-50%,-50%); 
-    }
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden; //fix small glitch
+  }
 
-    &:hover &__img {
-        transform: translateX(-4rem) scale(1);
-        filter: blur(3px) brightness(80%); // thêm hiệu ứng blur khi hover vào ảnh
-    }
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%); // thêm hiệu ứng blur khi hover vào ảnh
+  }
 }
