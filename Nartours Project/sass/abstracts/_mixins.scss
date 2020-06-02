@@ -1,14 +1,69 @@
-@mixin clearfix{
-    &::after{
-        content: "";
-        clear: both;
-        display: table;
-    }
+@mixin clearfix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
 }
 
-@mixin  absCenter {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// MEDIA QUERY MANAGER => dùng mixin @if và @content
+/*
+    0 - 600px: Phone
+    600 - 900px: Tablet
+    900 - 1200px: Tablet landscape
+    1200 - 1800px: is where normal styles apply
+    1800px +: Big dektop
+*/
+
+// @content dùng để parse được code vào trong chỗ ghi @content
+@mixin respond-phone {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+/* $
+breakpoint argument choices
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+- 1em = 16px 
+- ko nên dùng rem cho media => em là tốt nhất cho media => chuyển media từ px sang em
+
+ORDER: Base + typography > general layout + grid > page layout > components
+*/
+
+@mixin respond($breakpont) {
+  @if $breakpont == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    } // 600px
+  }
+
+  @if $breakpont == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+
+  @if $breakpont == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+
+  @if $breakpont == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    } //1800px
+  }
 }

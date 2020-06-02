@@ -14,7 +14,7 @@
 
   //OPEN POPUP
   &:target {
-    //target là khi ta click vô btn và trên url có #id-target => nó đã dc target
+    //target là khi ta click vô btn (thẻ a) và trên url có #id-target => nó đã dc target
     opacity: 1;
     visibility: visible;
   }

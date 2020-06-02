@@ -2,19 +2,46 @@
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    /*box-sizing: border-box; cách này dùng khi muốn dùng border-box cho tất cả*/
-    box-sizing: inherit; /* kế thừa: cách này dùng linht động hơn, element nào muốn dùng loại gì thì define vào element đó */  
+  margin: 0;
+  padding: 0;
+  /*box-sizing: border-box; cách này dùng khi muốn dùng border-box cho tất cả*/
+  box-sizing: inherit; /* kế thừa: cách này dùng linht động hơn, element nào muốn dùng loại gì thì define vào element đó */
 }
 
 html {
-    /*font-size: 10px;  dùng 10px trong html tương đương với root => với các element khác khi dùng rem => 1 rem <=> 10px, nếu ko define font-size thì mặc định bằng 16px */
-    /* để 10px cho dễ chia đó */
-    font-size: 62.5%; /* tương đương với 10px, 16px*62.5%=10px đó, nên dùng % ở đoạn này để người dùng ko tùy ý chỉnh theo px 
+  /*font-size: 10px;  dùng 10px trong html tương đương với root => với các element khác khi dùng rem => 1 rem <=> 10px, nếu ko define font-size thì mặc định bằng 16px */
+  /* để 10px cho dễ chia đó */
+  font-size: 62.5%; /* tương đương với 10px, 16px*62.5%=10px đó, nên dùng % ở đoạn này để người dùng ko tùy ý chỉnh theo px 
     muốn tăng px lên thì lấy 0.625 * số px cần để ra % */
+
+  //   @include respond-phone {
+  //     font-size: 50%; // parse code này vào @content trong mixin thay vì truyền params
+  //   }
+
+  //   @include respond(phone) { vì font-size giống tab-port nên bỏ dc
+  //     font-size: 50%;
+  //   }
+
+  @include respond(tab-land) {
+    // width < 1200px nên phải đặt trc
+    font-size: 56.25%; //1 rem = 9px , 9/16 =50%
+  }
+
+  @include respond(tab-port) {
+    // width < 900px
+    font-size: 50%; //1 rem = 8px , 8/16 =50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 1rem = 12px , 12/16 = 75%
+  }
 } // => this defines what 1rem is => khong nen chuyen vafo typography
 
-body{
-    box-sizing: border-box; /* define box-sizing cho body */
+body {
+  box-sizing: border-box; /* define box-sizing cho body */
+  padding: 3rem; /* 30px */
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }

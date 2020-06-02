@@ -52,3 +52,5 @@ có hai cách để chèn ảnh vào trang:
 
 
     -- column-count : 1 feature mới, dùng để chia cột cho text
+
+    -- MEdia nên dùng xét max,min-width là em và lúc này 1 em = 16px
