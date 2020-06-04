@@ -27,20 +27,26 @@
     width: 15rem;
     height: 15rem;
     float: left;
-    shape-outside: circle(
-      50% at 50% 50%
-    ); // ban kinh bang 50% width vaf tam o toa do bang 50% height width => dùng cái này thì chữ có thể flow theo hình tròn và phải dùng float thì mới dc
-    -webkit-shape-outside: circle(
-      50% at 50% 50%
-    ); // ban kinh bang 50% width vaf tam o toa do bang 50% height width
-
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%); // chuyển thẻ thành hình tròn
-
     transform: translateX(-3rem) skewX(12deg); //dich hinh tron ra cach chu 1 doan
     // __shape này có độ cụ thể hơn nên transform img sẽ ko ăn skew của &>* => phải thêm cả skew vào đây
 
     position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%); // chuyển thẻ thành hình tròn
+
+      shape-outside: circle(
+        50% at 50% 50%
+      ); // ban kinh bang 50% width vaf tam o toa do bang 50% height width => dùng cái này thì chữ có thể flow theo hình tròn và phải dùng float thì mới dc
+      -webkit-shape-outside: circle(
+        50% at 50% 50%
+      ); // ban kinh bang 50% width vaf tam o toa do bang 50% height width
+
+      border-radius: none;
+    }
 
     @include respond(phone) {
       transform: translateX(-3rem) skewX(0);

@@ -98,3 +98,12 @@ có hai cách để chèn ảnh vào trang:
   } // min-resolution để kt mật độ pixel của output device
   
   ==> khi mà mật độ điểm ảnh lớn hơn 192dpi và width của thiết bị >600px => cần ảnh có chất lg tốt hơn nếu ko sẽ bị rỗ 
+
+
+  /// SUPPORT IN CSS WITH @supports
+    @supports(-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px); // cái này chỉ dùng dc cho safari
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, 0.3);
+  } // cái này nghĩa là nếu trình duyệt support backdrop-filter thì chạy đoạn code ở trong
+  

@@ -1,7 +1,7 @@
 // chỉ trong sass mới put hex color vào rgba
 
 .header {
-  height: 95vh; /*tương đương 95% view height*/
+  height: 85vh; /*tương đương 85% view height*/
   background-image: linear-gradient(
       to right bottom,
       rgba($color-primary-light, 0.8),
@@ -12,16 +12,22 @@
   background-position: top; /* điểm neo của ảnh - ở đây là top tức là khi view thay đổi thì top vẫn luôn bằng 0 */
   position: relative;
 
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 75vh,
-    0 100%
-  ); /* chỉnh sửa khối theo 4 điểm neo -> cặp tọa độ x y của 4 điểm neo từ trái->phải với hàng trên, phải sang trái với hàng dưới=> theo chiều kim đồng hồ */
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    height: 95vh;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 75vh,
+      0 100%
+    ); /* chỉnh sửa khối theo 4 điểm neo -> cặp tọa độ x y của 4 điểm neo từ trái->phải với hàng trên, phải sang trái với hàng dưới=> theo chiều kim đồng hồ */
+  }
 
   // ĐOẠN NÀY LÀ CÁCH RESPONSIVE IMAGE THEO CSS
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+  @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    (min-width: 125em),
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    (min-width: 125em) {
     // 192 dots per inch => khi resolution > 192 dpi thì dùng ảnh hero.jpg có chất lg cao hơn
     background-image: linear-gradient(
         to right bottom,

@@ -9,8 +9,13 @@
 
   opacity: 0;
   visibility: hidden; // dùng 2 cái này để thêm animation và nó ko chiếm vùng trong web
-
   transition: all 0.3s;
+
+  @supports(-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px); // cái này chỉ dùng dc cho safari
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, 0.3);
+  } // cái này nghĩa là nếu trình duyệt support backdrop-filter thì chạy đoạn code ở trong
 
   //OPEN POPUP
   &:target {
