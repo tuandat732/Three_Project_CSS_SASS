@@ -54,3 +54,47 @@ có hai cách để chèn ảnh vào trang:
     -- column-count : 1 feature mới, dùng để chia cột cho text
 
     -- MEdia nên dùng xét max,min-width là em và lúc này 1 em = 16px
+
+
+/// RESPONSIVE _ IMAGE 
+// Không chỉ là responsive image mà còn là việc tối ưu performance cho nó, ví dụ như trên pc thì có dung lg là 1mb nhưng trên mobile thì phải giảm dung lượng nó xuống=> tải sẽ nhanh hơn
+
+*- Responsive Images in HTML - Art Direction and Density Switching
+  - how to use srcset attribute on the <img> and <source> elements, together with density descriptors
+  - how and why to use the <picture> element for art Direction
+  - how to write media queries in html
+  -- cách 1(density Switching): dùng 2 or nhiều hình ảnh cho mỗi cái, 1 cái 2x, 1 cái 1x,.. và tùy vào kích thước hiển thị :lap,mobile để dùng loại nào
+            => dùng srcset="img1 1x, img2 2x" => 1x,2x ở đây là density descriptor => để định nghĩ khi nào cần dùng loại ảnh nào
+            => srcset: browser sẽ chọn ra loại chuẩn nhất trong 2 loại trên để phù hợp vs từng screen
+  -- cách 2(art Direction): nói với browser rằng 1 hình ảnh cho 1 screen width và 1 hình ảnh khác sẽ cho 1 screen width khác
+          <picture class="footer__logo">
+            <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" media="(max-width: 37.5em)">  
+              <!-- trong media là css media query(responsive)  -->
+            <img srcset="img/logo-green-2x.png" alt="Full logo" class="footer__logo" />
+          </picture>
+      => trong thẻ <source> nó như media query trong CSS, khi width <37.5em thì dùng ảnh dc define trong thẻ <source> nếu không thì dùng ảnh trong thẻ img
+      => có thẻ dùng nhiều thẻ source và có thể dùng cả cách 1 và cách 2 cùng lúc như ví dụ trên
+
+*- Responsive Images in HTML - Density and Resolution Switching
+      <img
+        srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+        sizes="(max-width:900px) 20vw, (max-width:600px) 30vw, 300px"
+        alt="Photo 1"
+        class="composition__photo composition__photo--p1"
+        src="img/nat-1-large.jpg"
+      />
+
+    => trong sizes: 20vw tức là khi width < 900 thì ảnh có kích thước bằng kích thước ảnh gốc / 900 *100
+    => trong srcset thì 300w với 1000w là kích thước của ảnh(kích thước gốc của ảnh ý) => gọi là width descriptor , ko cần chính xác đâu, xấp xỉ dc, ở cách trên dùng 1x 2x cũng ok nhưng ở trên trong tên ảnh nó để 1x 2x nên dùng dc 
+
+*- Responsive Images in CSS
+   @media(min-resolution: 192dpi) and (min-width: 600px) { // 192 dots per inch => khi resolution > 192 dpi thì dùng ảnh hero.jpg có chất lg cao hơn
+    background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg);
+  } // min-resolution để kt mật độ pixel của output device
+  
+  ==> khi mà mật độ điểm ảnh lớn hơn 192dpi và width của thiết bị >600px => cần ảnh có chất lg tốt hơn nếu ko sẽ bị rỗ 

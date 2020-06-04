@@ -1,12 +1,13 @@
+// chỉ trong sass mới put hex color vào rgba
+
 .header {
   height: 95vh; /*tương đương 95% view height*/
   background-image: linear-gradient(
       to right bottom,
       rgba($color-primary-light, 0.8),
-      // chỉ trong sass mới put hex color vào rgba
-        rgba($color-primary-dark, 0.8)
+      rgba($color-primary-dark, 0.8)
     ),
-    url(../img/hero.jpg); /* comma - thêm hiệu ứng cho background , ở đây dùng linear-gradient có param 1 là hướng gradient */
+    url(../img/hero-small.jpg); /* comma - thêm hiệu ứng cho background , ở đây dùng linear-gradient có param 1 là hướng gradient */
   background-size: cover; /* tự fit với khối div chứa ảnh */
   background-position: top; /* điểm neo của ảnh - ở đây là top tức là khi view thay đổi thì top vẫn luôn bằng 0 */
   position: relative;
@@ -18,6 +19,28 @@
     100% 75vh,
     0 100%
   ); /* chỉnh sửa khối theo 4 điểm neo -> cặp tọa độ x y của 4 điểm neo từ trái->phải với hàng trên, phải sang trái với hàng dưới=> theo chiều kim đồng hồ */
+
+  // ĐOẠN NÀY LÀ CÁCH RESPONSIVE IMAGE THEO CSS
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    // 192 dots per inch => khi resolution > 192 dpi thì dùng ảnh hero.jpg có chất lg cao hơn
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url(../img/hero.jpg);
+  } // min-resolution để kt mật độ pixel của output device
+
+  // @media(min-width:2000px) {
+  //   background-image: linear-gradient(
+  //     to right bottom,
+  //     rgba($color-primary-light, 0.8),
+  //       rgba($color-primary-dark, 0.8)
+  //   ),
+  //   url(../img/hero.jpg);
+  // }
+
+  // HẾT ĐOẠN RESPONSIVE IMAGE THEO CSS
 
   @include respond(phone) {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
