@@ -24,9 +24,9 @@
   }
 
   // ĐOẠN NÀY LÀ CÁCH RESPONSIVE IMAGE THEO CSS
-  @media (min-resolution: 192dpi) and (min-width: 37.5em),
-    (min-width: 125em),
-    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (min-width: 125em),
+    only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
     (min-width: 125em) {
     // 192 dots per inch => khi resolution > 192 dpi thì dùng ảnh hero.jpg có chất lg cao hơn
     background-image: linear-gradient(

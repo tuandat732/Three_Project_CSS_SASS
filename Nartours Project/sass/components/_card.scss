@@ -190,7 +190,9 @@
 
   //RESPOND
 
-  @include respond(tab-port) {
+  //@include respond(tab-port) {
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+    // khi dùng mobile hay những loại nào ko hover dc thì sẽ ko dùng thẻ card phải hover để quay
     height: auto;
     border-radius: 3px;
     background-color: $color-white;

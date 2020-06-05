@@ -107,3 +107,7 @@ có hai cách để chèn ảnh vào trang:
     background-color: rgba($color-black, 0.3);
   } // cái này nghĩa là nếu trình duyệt support backdrop-filter thì chạy đoạn code ở trong
   
+
+  /// DÙNG CHO MOBILE HAY NHỮNG LOẠI KO HOVER dc@media only screen and (max-width: 56.25em),
+  @media only screen and (max-width: 56.25em),
+  only screen and (hover:none) {}

@@ -45,3 +45,9 @@ body {
     padding: 0;
   }
 }
+
+::selection {
+  // cái này là khi kéo chuột bôi đen text thì sẽ style cho phần bôi đen
+  background-color: $color-primary;
+  color: $color-white;
+}
